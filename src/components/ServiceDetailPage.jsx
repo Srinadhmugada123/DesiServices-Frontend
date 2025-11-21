@@ -629,7 +629,7 @@ export default function ServiceDetailPage() {
 
                         <button
                           onClick={() => updateQuantity(svc.id, 1)}
-                          className="bg-white text-[#708238] w-8 h-8 rounded-full flex items-center justify-center font-bold"
+                          className="bg-white text-red w-8 h-8 rounded-full flex items-center justify-center font-bold"
                         >
                           +
                         </button>
