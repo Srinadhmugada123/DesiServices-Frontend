@@ -74,7 +74,7 @@ export const servicesData = [
         price: 50,
         icon: "plane",
         details: "Comfortable pick up and drop service from any airport location",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMuBkbuU1iITXOOYuKMXJn4FnzNPHN79XiUg&s",
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMuBkbuU1iITXOOYuKMXJn4FnzNPHN79XiUg&s",
         type: "internal"
       },
       {
@@ -84,7 +84,7 @@ export const servicesData = [
         price: 30,
         icon: "train",
         details: "Reliable service from all major railway stations",
-        image: "https://resizer.nationalworld.com/ac128847-9082-4b86-ae04-489f63abf9f8.jpg?tr=w-1200",
+        imageUrl: "https://resizer.nationalworld.com/ac128847-9082-4b86-ae04-489f63abf9f8.jpg?tr=w-1200",
         type: "internal"
       },
       {
@@ -94,7 +94,7 @@ export const servicesData = [
         price: 25,
         icon: "bus",
         details: "Quick pickup and drop from bus terminals",
-        image: "https://www.shutterstock.com/image-photo/transjakarta-buses-picking-dropping-off-260nw-2506508083.jpg",
+        imageUrl: "https://www.shutterstock.com/image-photo/transjakarta-buses-picking-dropping-off-260nw-2506508083.jpg",
         type: "internal"
       },
       {
@@ -104,7 +104,7 @@ export const servicesData = [
         price: 40,
         icon: "map-pin",
         details: "We take you to the passport office and assist throughout",
-        image: "https://media.istockphoto.com/id/1767011374/photo/specialist-taking-document-to-make-visa.jpg?s=612x612&w=0&k=20&c=NoDdqBIHg6v2tVxdwm_C1j4JMfPqs04_9b5jm4Xl5Vg=",
+        imageUrl: "https://media.istockphoto.com/id/1767011374/photo/specialist-taking-document-to-make-visa.jpg?s=612x612&w=0&k=20&c=NoDdqBIHg6v2tVxdwm_C1j4JMfPqs04_9b5jm4Xl5Vg=",
         type: "internal"
       },
       {
@@ -114,7 +114,7 @@ export const servicesData = [
         price: 45,
         icon: "building",
         details: "Complete assistance at visa centers and embassies",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmIIFZcO5HDU1VHJHS8wqZ0YWpXFmG7r55-w&s",
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmIIFZcO5HDU1VHJHS8wqZ0YWpXFmG7r55-w&s",
         type: "internal"
       },
       {
@@ -124,7 +124,7 @@ export const servicesData = [
         price: 35,
         icon: "check-circle",
         details: "Thorough verification of all required documents before submission",
-        image: "https://www.proplegal.in/wp-content/uploads/2017/07/online-property-document-verification-bangalore.jpeg",
+        imageUrl: "https://www.proplegal.in/wp-content/uploads/2017/07/online-property-document-verification-bangalore.jpeg",
         type: "internal"
       },
       {
@@ -134,7 +134,7 @@ export const servicesData = [
         price: 30,
         icon: "calendar",
         details: "We schedule appointments at passport/visa offices for you",
-        image: "https://www.shutterstock.com/image-photo/businessman-scheduling-digital-calendar-on-600nw-2622184481.jpg",
+        imageUrl: "https://www.shutterstock.com/image-photo/businessman-scheduling-digital-calendar-on-600nw-2622184481.jpg",
         type: "internal"
       },
       {
@@ -144,7 +144,7 @@ export const servicesData = [
         price: 40,
         icon: "home",
         details: "Book hotels or guest houses near offices for your convenience",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvTn5Vt82nFP8JHHggRfX7RsinjINue5ZdSQ&s",
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvTn5Vt82nFP8JHHggRfX7RsinjINue5ZdSQ&s",
         type: "internal"
       },
       {
@@ -154,7 +154,7 @@ export const servicesData = [
         price: 200,
         icon: "package",
         details: "All-inclusive: pickup, documents, appointments, accommodation & drop",
-        image: "https://completescsolutions.com/assets/uploads/slider4.jpg",
+        imageUrl: "https://completescsolutions.com/assets/uploads/slider4.jpg",
         type: "internal"
       }
     ]
@@ -189,7 +189,7 @@ export const servicesData = [
         price: 100,
         icon: "plane",
         details: "International shipping with customs support",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSucb_Rf_c37hInap5rTd7HwHIZiE1giiB9zA&s",
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSucb_Rf_c37hInap5rTd7HwHIZiE1giiB9zA&s",
         type: "internal"
       },
       {
@@ -199,7 +199,7 @@ export const servicesData = [
         price: 80,
         icon: "package",
         details: "Special handling for large and heavy items",
-        image: "https://www.shutterstock.com/image-photo/delivery-man-wearing-uniform-unloading-600nw-2514298405.jpg",
+        imageUrl: "https://www.shutterstock.com/image-photo/delivery-man-wearing-uniform-unloading-600nw-2514298405.jpg",
         type: "internal"
       },
       {
@@ -208,7 +208,7 @@ export const servicesData = [
         description: "Delivery within 4 hours",
         price: 40,
         icon: "zap",
-        image: "https://images.unsplash.com/photo-1620455800201-7f00aeef12ed?auto=format&q=80&w=1080",
+        imageUrl: "https://images.unsplash.com/photo-1620455800201-7f00aeef12ed?auto=format&q=80&w=1080",
         type: "internal"
       },
       {
@@ -217,7 +217,7 @@ export const servicesData = [
         description: "Delivered within 24 hours",
         price: 25,
         icon: "calendar",
-        image: "https://st2.depositphotos.com/1074452/5599/i/450/depositphotos_55999861-stock-photo-same-day-delivery-means-fast.jpg",
+        imageUrl: "https://st2.depositphotos.com/1074452/5599/i/450/depositphotos_55999861-stock-photo-same-day-delivery-means-fast.jpg",
         type: "internal"
       },
       {
@@ -226,7 +226,7 @@ export const servicesData = [
         description: "Careful delivery for delicate items",
         price: 30,
         icon: "shield",
-        image: "https://img.freepik.com/free-photo/man-warehouse-working-with-packages_23-2148886849.jpg?semt=ais_hybrid&w=740&q=80",
+        imageUrl: "https://img.freepik.com/free-photo/man-warehouse-working-with-packages_23-2148886849.jpg?semt=ais_hybrid&w=740&q=80",
         type: "internal"
       },
       {
@@ -235,7 +235,7 @@ export const servicesData = [
         description: "Fast delivery for important papers",
         price: 20,
         icon: "file",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw2pnB5yGuNEDVm8On1Tm85Tldr_liUIOCqg&s",
+        imageUrle: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw2pnB5yGuNEDVm8On1Tm85Tldr_liUIOCqg&s",
         type: "internal"
       },
       {
@@ -244,7 +244,7 @@ export const servicesData = [
         description: "Standard pickup & drop service",
         price: 20,
         icon: "home",
-        image: "https://5.imimg.com/data5/SELLER/Default/2022/10/GP/KO/OQ/99318964/airport-pickup-drop-service-500x500.jpeg",
+        imageUrl: "https://5.imimg.com/data5/SELLER/Default/2022/10/GP/KO/OQ/99318964/airport-pickup-drop-service-500x500.jpeg",
         type: "internal"
       },
       {
@@ -253,7 +253,7 @@ export const servicesData = [
         description: "Buy & deliver fashion items",
         price: 40,
         icon: "shopping-bag",
-        image: "https://www.shutterstock.com/image-photo/fashion-shopping-friends-choice-clothes-600w-2472680449.jpg",
+        imageUrl: "https://www.shutterstock.com/image-photo/fashion-shopping-friends-choice-clothes-600w-2472680449.jpg",
         type: "internal"
       },
       {
@@ -262,7 +262,7 @@ export const servicesData = [
         description: "Pickup prescribed medicines",
         price: 25,
         icon: "pill",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs6wJBtLqECZjw8MaNumFtBg4Tj5Y-APs7yg&s",
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs6wJBtLqECZjw8MaNumFtBg4Tj5Y-APs7yg&s",
         type: "internal"
       },
       {
@@ -271,7 +271,7 @@ export const servicesData = [
         description: "Custom items or rare finds",
         price: 35,
         icon: "gift",
-        image: "https://media.istockphoto.com/id/2153511740/photo/our-favorite-thing-to-do-is-shopping.jpg?s=612x612&w=0&k=20&c=b7I5caCrIhtNQpV76RK4HVqQwV_nvrptjOoFIcDBwz8=",
+        imageUrl: "https://media.istockphoto.com/id/2153511740/photo/our-favorite-thing-to-do-is-shopping.jpg?s=612x612&w=0&k=20&c=b7I5caCrIhtNQpV76RK4HVqQwV_nvrptjOoFIcDBwz8=",
         type: "internal"
       },
       {
@@ -280,7 +280,7 @@ export const servicesData = [
         description: "Shop and deliver gifts",
         price: 30,
         icon: "gift",
-        image: "https://assets.oyegifts.com/flowers-n-gifts/vendordata/resized/unbox193.jpg",
+        imageUrl: "https://assets.oyegifts.com/flowers-n-gifts/vendordata/resized/unbox193.jpg",
         type: "internal"
       },
       {
@@ -289,7 +289,7 @@ export const servicesData = [
         description: "All-in-one delivery service",
         price: 180,
         icon: "package",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMw9_iHcVjFY7XLot4bcIELVu_gesqcTOK4w&s",
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMw9_iHcVjFY7XLot4bcIELVu_gesqcTOK4w&s",
         type: "internal"
       }
     ]
@@ -329,7 +329,7 @@ export const servicesData = [
         price: 70,
         icon: "stethoscope",
         details: "Comprehensive monthly health screening",
-        image: "https://www.shutterstock.com/image-photo/doctor-listening-girls-breathing-heartbeats-600nw-2387615713.jpg",
+        imageUrl: "https://www.shutterstock.com/image-photo/doctor-listening-girls-breathing-heartbeats-600nw-2387615713.jpg",
         type: "internal"
       },
       {
@@ -339,7 +339,7 @@ export const servicesData = [
         price: 50,
         icon: "home",
         details: "Comfortable transportation to medical appointments",
-        image: "https://thumbs.dreamstime.com/b/ambulance-leaving-hospital-emergency-25281373.jpg",
+        imageUrl: "https://thumbs.dreamstime.com/b/ambulance-leaving-hospital-emergency-25281373.jpg",
         type: "internal"
       },
       {
@@ -348,7 +348,7 @@ export const servicesData = [
         description: "Book doctor visits",
         price: 30,
         icon: "calendar",
-        image: "https://mobisoftinfotech.com/resources/wp-content/uploads/2018/07/Banner-1.png",
+        imageUrl: "https://mobisoftinfotech.com/resources/wp-content/uploads/2018/07/Banner-1.png",
         type: "internal"
       },
       {
@@ -357,7 +357,7 @@ export const servicesData = [
         description: "Collect, store, and share results",
         price: 35,
         icon: "file",
-        image: "https://media.istockphoto.com/id/174778357/photo/young-female-doctor-reviewing-file-in-examination-room.jpg?s=612x612&w=0&k=20&c=fXxtzyYRvP8cHhqvh8Lxut8sP87h2V6JCi5lQEhQVLE=",
+        imageUrl: "https://media.istockphoto.com/id/174778357/photo/young-female-doctor-reviewing-file-in-examination-room.jpg?s=612x612&w=0&k=20&c=fXxtzyYRvP8cHhqvh8Lxut8sP87h2V6JCi5lQEhQVLE=",
         type: "internal"
       },
       {
@@ -366,7 +366,7 @@ export const servicesData = [
         description: "Monthly medicine subscriptions",
         price: 25,
         icon: "pill",
-        image: "https://media.istockphoto.com/id/1483742423/photo/pharmacist-chemist-woman-standing-refills-the-shelves-with-new-stocks-in-pharmacy.jpg?s=612x612&w=0&k=20&c=mqMjyuSWbdLCRQDxwHsVjqp2mEFPFyCGQr85-iivrfo=",
+        imageUrl: "https://media.istockphoto.com/id/1483742423/photo/pharmacist-chemist-woman-standing-refills-the-shelves-with-new-stocks-in-pharmacy.jpg?s=612x612&w=0&k=20&c=mqMjyuSWbdLCRQDxwHsVjqp2mEFPFyCGQr85-iivrfo=",
         type: "internal"
       },
       {
@@ -375,7 +375,7 @@ export const servicesData = [
         description: "Pickup for patients coming from other cities",
         price: 60,
         icon: "bus",
-        image: "https://media.gettyimages.com/id/1452316636/photo/paramedics-taking-patient-on-stretcher-from-ambulance-to-hospital.jpg?s=612x612&w=gi&k=20&c=EBp2uBWuSR-hntGW8BwycKrkfFThK0ewuSZD5ORl4Fw=",
+        imageUrl: "https://media.gettyimages.com/id/1452316636/photo/paramedics-taking-patient-on-stretcher-from-ambulance-to-hospital.jpg?s=612x612&w=gi&k=20&c=EBp2uBWuSR-hntGW8BwycKrkfFThK0ewuSZD5ORl4Fw=",
         type: "internal"
       },
       {
@@ -385,7 +385,7 @@ export const servicesData = [
         price: 220,
         icon: "package",
         details: "Complete hospital visit support from start to finish",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFa4jj2Ze1FKuXvmmgqge6TQPh4stuaALh3A&s",
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFa4jj2Ze1FKuXvmmgqge6TQPh4stuaALh3A&s",
         type: "internal"
       }
     ]
@@ -419,7 +419,7 @@ export const servicesData = [
         description: "Weekly grocery & essentials",
         price: 30,
         icon: "shopping-cart",
-        image: "https://images.unsplash.com/photo-1759167632930-298bca6b4268?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        imageUrl: "https://images.unsplash.com/photo-1759167632930-298bca6b4268?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
         type: "internal"
       },
       {
@@ -428,7 +428,7 @@ export const servicesData = [
         description: "Pharmacy & prescription collection",
         price: 20,
         icon: "pill",
-        image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        imageUrl: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
         type: "internal"
       },
       {
@@ -437,7 +437,7 @@ export const servicesData = [
         description: "Special gifts & wrapping",
         price: 40,
         icon: "gift",
-        image: "https://images.unsplash.com/photo-1671393759133-781c76bb8f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+       imageUrl: "https://images.unsplash.com/photo-1671393759133-781c76bb8f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
         type: "internal"
       },
       {
@@ -446,7 +446,7 @@ export const servicesData = [
         description: "Pay bills & run errands",
         price: 25,
         icon: "credit-card",
-        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        imageUrl: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
         type: "internal"
       }
     ]

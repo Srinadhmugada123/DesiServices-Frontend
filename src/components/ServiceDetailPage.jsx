@@ -559,102 +559,135 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* What We Offer */}
+
+{/* What We Offer */}
+
+
       <section className="py-16 bg-gray-100">
-        <div className="max-w-7xl mx-auto px-6 text-center mb-12">
-          <p className="text-[#708238] uppercase mb-2">What we offer</p>
-          <h2 className="text-[#708238] text-2xl mb-2">Choose What You Need</h2>
-          <p className="text-[#5a5a5a]">Select services and check pricing</p>
-        </div>
+  <div className="max-w-7xl mx-auto px-6 text-center mb-12">
+    <p className="text-[#708238] uppercase mb-2">What we offer</p>
+    <h2 className="text-[#3A4D47] text-2xl mb-2">Choose What You Need</h2>
+    <p className="text-[#5a5a5a]">Select services and check pricing</p>
+  </div>
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {service.internalServices.map((svc) => {
-            const Icon = iconMap[svc.icon];
-            const qty = selectedServices[svc.id] || 0;
+  <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {service.internalServices.map((svc) => {
+      const Icon = iconMap[svc.icon];
+      const qty = selectedServices[svc.id] || 0;
 
-            return (
+      // Any service with an image will be treated as a "image card"
+      const isImageCard = !!svc.imageUrl;
+
+      return (
+        <div
+          key={svc.id}
+          className={`relative rounded-3xl p-6 hover:shadow-x1 transition overflow-hidden ${
+            qty > 0 ? "ring-4 ring-[#708238]" : ""
+          }`}
+          style={
+            isImageCard
+              ? {
+                  backgroundImage: `url(${svc.imageUrl})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }
+              : {}
+          }
+        >
+          {/* Overlay if card has an image */}
+          {isImageCard && <div className="absolute inset-0 bg-black/40"></div>}
+
+          {/* Card content */}
+          <div className={`flex flex-col h-full ${isImageCard ? "relative text-white" : ""}`}>
+            <div className="flex justify-between mb-3">
               <div
-                key={svc.id}
-                className="relative rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group h-[260px]"
+                className={`w-14 h-14 ${
+                  isImageCard ? "bg-[#708238]/80" : "bg-[#708238]"
+                } rounded-full flex items-center justify-center`}
               >
-                {/* IMAGE */}
-                <img
-                  src={svc.image}
-                  alt={svc.name}
-                  className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
-                />
+                <Icon size={26} className="text-white" />
+              </div>
+              <button
+                onClick={() => setLearnMoreService(svc)}
+                className="text-[#708238] hover:text-[#5a8e8b]"
+              >
+                <Info size={22} />
+              </button>
+            </div>
 
-                {/* DARK OVERLAY */}
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all"></div>
+            <h4 className="font-medium mb-2">{svc.name}</h4>
+            <p className="text-sm flex-1">{svc.description}</p>
 
-                {/* PRICE BADGE */}
-                <div className="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-sm font-semibold text-[#708238] shadow">
-                  ${svc.price}
-                </div>
-
-                {/* ICON TOP RIGHT */}
-                <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-[#708238] flex items-center justify-center shadow">
-                  <Icon size={22} className="text-white" />
-                </div>
-
-                {/* TITLE + DESCRIPTION */}
-                <div className="absolute bottom-20 left-4 right-4 text-white">
-                  <h3 className="text-lg font-bold">{svc.name}</h3>
-                  <p className="text-sm opacity-90">{svc.description}</p>
-                </div>
-
-                {/* ADD / QTY SECTION */}
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-
-                  {/* ADD / QTY SECTION - full width */}
-                  <div className="flex-1">
-                    {qty === 0 ? (
-                      <button
-                        onClick={() => updateQuantity(svc.id, 1)}
-                        className="w-full bg-[#708238] text-white py-3 rounded-full font-medium"
-                      >
-                        + Add
-                      </button>
-                    ) : (
-                      <div className="flex items-center gap-3 bg-[#708238] rounded-full py-2 px-4 w-full justify-center">
-                        <button
-                          onClick={() => updateQuantity(svc.id, -1)}
-                          className="bg-white text-[#708238] w-8 h-8 rounded-full flex items-center justify-center font-bold"
-                        >
-                          -
-                        </button>
-
-                        <div className="bg-gray-100 text-[#708238] w-8 h-8 rounded-full flex items-center justify-center font-semibold shadow">
-                          {qty}
-                        </div>
-
-                        <button
-                          onClick={() => updateQuantity(svc.id, 1)}
-                          className="bg-white text-[#708238] w-8 h-8 rounded-full flex items-center justify-center font-bold"
-                        >
-                          +
-                        </button>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* INFO BUTTON */}
+            <div className="flex justify-between items-center border-t border-white/30 pt-3 mt-4">
+              <span
+                className={`${
+                  isImageCard
+                    ? "text-xl font-semibold"
+                    : "text-[#708238] text-xl font-semibold"
+                }`}
+              >
+                ${svc.price}
+              </span>
+              {qty === 0 ? (
+                <button
+                  onClick={() => updateQuantity(svc.id, 1)}
+                  className="bg-[#708238] text-white px-4 py-2 rounded-full flex items-center gap-1"
+                >
+                  <Plus size={16} /> Add
+                </button>
+              ) : (
+                <div className="flex items-center gap-2 bg-gray-25 rounded-full px-3 py-1">
                   <button
-                    onClick={() => setLearnMoreService(svc)}
-                    className="px-6 py-4 rounded-full border-2 border-gray-300 text-white 
-             bg-transparent hover:bg-gray-200/30 transition-colors"
+                    onClick={() => updateQuantity(svc.id, -1)}
+                    className="w-7 h-7 bg-gray-25 rounded-full flex items-center justify-center hover:bg-[#708238] hover:text-white"
                   >
-                    <Info size={18} />
+                    <Minus size={14} />
+                  </button>
+                  <span>{qty}</span>
+                  <button
+                    onClick={() => updateQuantity(svc.id, 1)}
+                    className="w-7 h-7 bg-gray-25 rounded-full flex items-center justify-center hover:bg-[#708238] hover:text-white"
+                  >
+                    <Plus size={14} />
                   </button>
                 </div>
+              )}
+            </div>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</section>
 
-              </div>
 
-
-            );
-          })}
+{/* How It Works */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h2 className="text-2xl font-semibold text-[#3A4D47] mb-2">
+            How It Works
+          </h2>
+          <p className="text-[#5a5a5a] mb-10">
+            Follow these simple steps to get started!
+          </p>
+          <div className="grid md:grid-cols-4 gap-6">
+            {service.steps.map((s, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-gray-100 rounded-3xl p-6 shadow hover:shadow-lg"
+              >
+                <div className="text-4xl mb-3">{i + 1}️⃣</div>
+                <h3 className="font-semibold text-[#3A4D47] mb-1">{s.title}</h3>
+                <p className="text-[#5a5a5a] text-sm">{s.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
-
+      
       {/* Floating Cart */}
       {totalItems > 0 && (
         <div className="fixed bottom-0 left-0 right-0 bg-gray-100 border-t-2 border-[#708238] shadow-2xl z-50">
@@ -671,7 +704,7 @@ export default function ServiceDetailPage() {
               </div>
               <button
                 onClick={handleProceedToBook}
-                className="bg-[#708238] text-white px-8 py-4 rounded-full hover:bg-[#5a8e8b] transition-colors shadow-lg text-lg w-full sm:w-auto"
+                className="bg-[#708238] text-white px-8 py-4 rounded-full hover:bg-[#708238] transition-colors shadow-lg text-lg w-full sm:w-auto"
               >
                 Proceed to Book
               </button>
