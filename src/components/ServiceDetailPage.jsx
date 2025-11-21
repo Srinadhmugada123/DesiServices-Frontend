@@ -629,7 +629,7 @@ export default function ServiceDetailPage() {
 
                         <button
                           onClick={() => updateQuantity(svc.id, 1)}
-                          className="bg-white text-[#708238] w-8 h-8 rounded-full flex items-center justify-center font-bold"
+                          className="bg-white text-red w-8 h-8 rounded-full flex items-center justify-center font-bold"
                         >
                           +
                         </button>
@@ -638,13 +638,13 @@ export default function ServiceDetailPage() {
                   </div>
 
                   {/* INFO BUTTON */}
-                  <button
+                  {/* <button
                     onClick={() => setLearnMoreService(svc)}
                     className="px-6 py-4 rounded-full border-2 border-gray-300 text-white 
              bg-transparent hover:bg-red-200/30 transition-colors"
                   >
                     <Info size={25} />
-                  </button>
+                  </button> */}
                 </div>
 
               </div>
