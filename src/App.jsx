@@ -4,7 +4,8 @@ import HomePage from "./components/HomePage.jsx";
 import { ServicesPage } from "./components/ServicePage.jsx";
 import ServiceDetailPage  from "./components/ServiceDetailPage.jsx";
 // import { BookingPage } from "./components/BookingPage.";
-import MyOrdersPage  from "./components/MyOrdersPage";
+// import MyOrdersPage  from "./components/MyOrdersPage";
+import { MyOrdersPage } from "./components/MyOrdersPage.jsx";
 import { BookingPage } from "./components/BookingPage.jsx";
 
 

@@ -235,7 +235,7 @@ export const servicesData = [
         description: "Fast delivery for important papers",
         price: 20,
         icon: "file",
-        imageUrle: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw2pnB5yGuNEDVm8On1Tm85Tldr_liUIOCqg&s",
+        imageUrl: "https://tiimg.tistatic.com/fp/1/004/899/express-document-courier-service-628.jpg",
         type: "internal"
       },
       {

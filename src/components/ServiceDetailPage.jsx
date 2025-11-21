@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import {servicesData} from "../data/ServicesData";
+import { servicesData } from "../data/ServicesData";
 import {
   Package,
   FileText,
@@ -430,7 +430,7 @@ const iconMap = {
   truck: Truck,
   cross: Cross,
   car: Car,
-  file:File,
+  file: File,
 };
 
 // ===================== Component =====================
@@ -469,9 +469,9 @@ export default function ServiceDetailPage() {
   // // const handleProceedToBook = () => navigate("/book");
   // const handleProceedToBook = () => navigate("/booking"); 
 
- // Add logic for navigate tio booking page
+  // Add logic for navigate tio booking page
   const totalItems = Object.values(selectedServices).reduce((a, b) => a + b, 0);
- 
+
   const handleProceedToBook = () => {
     navigate("/booking", {
       state: {
@@ -560,108 +560,105 @@ export default function ServiceDetailPage() {
 
       {/* What We Offer */}
 
-{/* What We Offer */}
+      {/* What We Offer */}
 
 
       <section className="py-16 bg-gray-100">
-  <div className="max-w-7xl mx-auto px-6 text-center mb-12">
-    <p className="text-[#708238] uppercase mb-2">What we offer</p>
-    <h2 className="text-[#3A4D47] text-2xl mb-2">Choose What You Need</h2>
-    <p className="text-[#5a5a5a]">Select services and check pricing</p>
-  </div>
-
-  <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-    {service.internalServices.map((svc) => {
-      const Icon = iconMap[svc.icon];
-      const qty = selectedServices[svc.id] || 0;
-
-      // Any service with an image will be treated as a "image card"
-      const isImageCard = !!svc.imageUrl;
-
-      return (
-        <div
-          key={svc.id}
-          className={`relative rounded-3xl p-6 hover:shadow-x1 transition overflow-hidden ${
-            qty > 0 ? "ring-4 ring-[#708238]" : ""
-          }`}
-          style={
-            isImageCard
-              ? {
-                  backgroundImage: `url(${svc.imageUrl})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }
-              : {}
-          }
-        >
-          {/* Overlay if card has an image */}
-          {isImageCard && <div className="absolute inset-0 bg-black/40"></div>}
-
-          {/* Card content */}
-          <div className={`flex flex-col h-full ${isImageCard ? "relative text-white" : ""}`}>
-            <div className="flex justify-between mb-3">
-              <div
-                className={`w-14 h-14 ${
-                  isImageCard ? "bg-[#708238]/80" : "bg-[#708238]"
-                } rounded-full flex items-center justify-center`}
-              >
-                <Icon size={26} className="text-white" />
-              </div>
-              <button
-                onClick={() => setLearnMoreService(svc)}
-                className="text-[#708238] hover:text-[#5a8e8b]"
-              >
-                <Info size={22} />
-              </button>
-            </div>
-
-            <h4 className="font-medium mb-2">{svc.name}</h4>
-            <p className="text-sm flex-1">{svc.description}</p>
-
-            <div className="flex justify-between items-center border-t border-white/30 pt-3 mt-4">
-              <span
-                className={`${
-                  isImageCard
-                    ? "text-xl font-semibold"
-                    : "text-[#708238] text-xl font-semibold"
-                }`}
-              >
-                ${svc.price}
-              </span>
-              {qty === 0 ? (
-                <button
-                  onClick={() => updateQuantity(svc.id, 1)}
-                  className="bg-[#708238] text-white px-4 py-2 rounded-full flex items-center gap-1"
-                >
-                  <Plus size={16} /> Add
-                </button>
-              ) : (
-                <div className="flex items-center gap-2 bg-gray-25 rounded-full px-3 py-1">
-                  <button
-                    onClick={() => updateQuantity(svc.id, -1)}
-                    className="w-7 h-7 bg-gray-25 rounded-full flex items-center justify-center hover:bg-[#708238] hover:text-white"
-                  >
-                    <Minus size={14} />
-                  </button>
-                  <span>{qty}</span>
-                  <button
-                    onClick={() => updateQuantity(svc.id, 1)}
-                    className="w-7 h-7 bg-gray-25 rounded-full flex items-center justify-center hover:bg-[#708238] hover:text-white"
-                  >
-                    <Plus size={14} />
-                  </button>
-                </div>
-              )}
-            </div>
-          </div>
+        <div className="max-w-7xl mx-auto px-6 text-center mb-12">
+          <p className="text-[#708238] uppercase mb-2">What we offer</p>
+          <h2 className="text-[#3A4D47] text-2xl mb-2">Choose What You Need</h2>
+          <p className="text-[#5a5a5a]">Select services and check pricing</p>
         </div>
-      );
-    })}
-  </div>
-</section>
+
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {service.internalServices.map((svc) => {
+            const Icon = iconMap[svc.icon];
+            const qty = selectedServices[svc.id] || 0;
+
+            // Any service with an image will be treated as a "image card"
+            const isImageCard = !!svc.imageUrl;
+
+            return (
+              <div
+                key={svc.id}
+                className={`relative rounded-3xl p-6 hover:shadow-x1 transition overflow-hidden ${qty > 0 ? "ring-4 ring-[#708238]" : ""
+                  }`}
+                style={
+                  isImageCard
+                    ? {
+                      backgroundImage: `url(${svc.imageUrl})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }
+                    : {}
+                }
+              >
+                {/* Overlay if card has an image */}
+                {isImageCard && <div className="absolute inset-0 bg-black/40"></div>}
+
+                {/* Card content */}
+                <div className={`flex flex-col h-full ${isImageCard ? "relative text-white" : ""}`}>
+                  <div className="flex justify-between mb-3">
+                    <div
+                      className={`w-14 h-14 ${isImageCard ? "bg-[#708238]/80" : "bg-[#708238]"
+                        } rounded-full flex items-center justify-center`}
+                    >
+                      <Icon size={26} className="text-white" />
+                    </div>
+                    <button
+                      onClick={() => setLearnMoreService(svc)}
+                      className="text-[#708238] hover:text-[#708238]"
+                    >
+                      <Info size={22} />
+                    </button>
+                  </div>
+
+                  <h4 className="font-medium mb-2">{svc.name}</h4>
+                  <p className="text-sm flex-1">{svc.description}</p>
+
+                  <div className="flex justify-between items-center border-t border-white/30 pt-3 mt-4">
+                    <span
+                      className={`${isImageCard
+                          ? "text-xl font-semibold"
+                          : "text-[#708238] text-xl font-semibold"
+                        }`}
+                    >
+                      ${svc.price}
+                    </span>
+                    {qty === 0 ? (
+                      <button
+                        onClick={() => updateQuantity(svc.id, 1)}
+                        className="bg-[#708238] text-white px-4 py-2 rounded-full flex items-center gap-1"
+                      >
+                        <Plus size={16} /> Add
+                      </button>
+                    ) : (
+                      <div className="flex items-center gap-2 bg-gray-25 rounded-full px-3 py-1">
+                        <button
+                          onClick={() => updateQuantity(svc.id, -1)}
+                          className="w-7 h-7 bg-gray-25 rounded-full flex items-center justify-center hover:bg-[#708238] hover:text-white"
+                        >
+                          <Minus size={14} />
+                        </button>
+                        <span>{qty}</span>
+                        <button
+                          onClick={() => updateQuantity(svc.id, 1)}
+                          className="w-7 h-7 bg-gray-25 rounded-full flex items-center justify-center hover:bg-[#708238] hover:text-white"
+                        >
+                          <Plus size={14} />
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
 
 
-{/* How It Works */}
+      {/* How It Works */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-2xl font-semibold text-[#3A4D47] mb-2">

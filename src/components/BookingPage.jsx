@@ -35,7 +35,7 @@ import {
   ChevronLeft,
   Check
 } from "lucide-react";
- 
+
 const iconMap = {
   package: Package,
   "file-text": FileText,
@@ -62,30 +62,30 @@ const iconMap = {
   bus: Bus,
   file: File
 };
- 
+
 export function BookingPage() {
   const location = useLocation();
   const navigate = useNavigate();
- 
+
   const initialService = location.state?.selectedService || "";
   const initialQuantities = location.state?.quantities || {};
- 
+
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedService, setSelectedService] = useState(initialService);
   const [selectedServices, setSelectedServices] = useState(initialQuantities);
- 
+
   // Removed: learnMoreService
   // const [learnMoreService, setLearnMoreService] = useState(null);
- 
+
   const service = servicesData.find((s) => s.id === selectedService);
- 
+
   const steps = [
     { number: 1, title: "Choose Service", icon: Package },
     { number: 2, title: "Your Details", icon: User },
     { number: 3, title: "Location & Time", icon: MapPin },
     { number: 4, title: "Additional Info", icon: FileText }
   ];
- 
+
   const updateQuantity = (internalId, change) => {
     setSelectedServices((prev) => {
       const current = prev[internalId] || 0;
@@ -97,7 +97,7 @@ export function BookingPage() {
       return { ...prev, [internalId]: newValue };
     });
   };
- 
+
   const calculateTotal = () => {
     if (!service) return 0;
     return Object.entries(selectedServices).reduce((sum, [id, qty]) => {
@@ -105,18 +105,18 @@ export function BookingPage() {
       return sum + (internal?.price || 0) * qty;
     }, 0);
   };
- 
+
   const canProceed = () => {
     if (currentStep === 1)
       return selectedService && Object.keys(selectedServices).length > 0;
     return true;
   };
- 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate("/orders");
   };
- 
+
   return (
     <div className="bg-white">
       <div className="bg-white py-8 sm:py-12 min-height-screen">
@@ -125,7 +125,7 @@ export function BookingPage() {
             <h1 className="text-[#556B2F] text-3xl mb-2">Book Your Service</h1>
             <p className="text-[#5a5a5a]">Easy step-by-step booking</p>
           </div>
- 
+
           {/* Steps */}
           <div className="mb-10 overflow-x-auto">
             <div className="flex justify-between max-w-3xl mx-auto min-w-[640px]">
@@ -133,35 +133,32 @@ export function BookingPage() {
                 const StepIcon = step.icon;
                 const isCompleted = currentStep > step.number;
                 const isCurrent = currentStep === step.number;
- 
+
                 return (
                   <div key={step.number} className="flex items-center flex-1">
                     <div className="flex flex-col items-center flex-1">
                       <div
-                        className={`w-14 h-14 rounded-full flex items-center justify-center ${
-                          isCompleted
-                            ? "bg-green-500 text-white"
-                            : isCurrent
+                        className={`w-14 h-14 rounded-full flex items-center justify-center ${isCompleted
+                          ? "bg-green-500 text-white"
+                          : isCurrent
                             ? "bg-[#556B2F] text-white ring-4 ring-[#556B2F]/30"
                             : "bg-white text-gray-400 border-2 border-gray-300"
-                        }`}
+                          }`}
                       >
                         {isCompleted ? <Check /> : <StepIcon />}
                       </div>
                       <span
-                        className={`mt-2 text-sm ${
-                          isCurrent ? "text-[#556B2F]" : "text-[#5a5a5a]"
-                        }`}
+                        className={`mt-2 text-sm ${isCurrent ? "text-[#556B2F]" : "text-[#5a5a5a]"
+                          }`}
                       >
                         {step.title}
                       </span>
                     </div>
- 
+
                     {index < steps.length - 1 && (
                       <div
-                        className={`h-1 flex-1 mx-2 ${
-                          isCompleted ? "bg-green-500" : "bg-gray-300"
-                        }`}
+                        className={`h-1 flex-1 mx-2 ${isCompleted ? "bg-green-500" : "bg-gray-300"
+                          }`}
                       />
                     )}
                   </div>
@@ -169,7 +166,7 @@ export function BookingPage() {
               })}
             </div>
           </div>
- 
+
           <div className="grid lg:grid-cols-3 gap-8">
             {/* LEFT: Steps */}
             <div className="lg:col-span-2">
@@ -184,7 +181,7 @@ export function BookingPage() {
                         </div>
                         <h3 className="text-[#556B2F]">Select Main Service</h3>
                       </div>
- 
+
                       <select
                         value={selectedService}
                         onChange={(e) => {
@@ -201,24 +198,23 @@ export function BookingPage() {
                         ))}
                       </select>
                     </div>
- 
+
                     {service && (
                       <div className="bg-white rounded-2xl shadow-lg p-6">
                         <h3 className="text-[#556B2F] mb-4">Select Options</h3>
- 
+
                         <div className="grid md:grid-cols-2 gap-4">
                           {service.internalServices.map((internal) => {
                             const InternalIcon = iconMap[internal.icon];
                             const quantity = selectedServices[internal.id] || 0;
- 
+
                             return (
                               <div
                                 key={internal.id}
-                                className={`p-4 rounded-xl border-2 ${
-                                  quantity > 0
-                                    ? "border-[#556B2F] bg-gray-100"
-                                    : "border-gray-200"
-                                }`}
+                                className={`p-4 rounded-xl border-2 ${quantity > 0
+                                  ? "border-[#556B2F] bg-gray-100"
+                                  : "border-gray-200"
+                                  }`}
                               >
                                 <div className="flex justify-between mb-3">
                                   <div className="flex items-center gap-2">
@@ -227,26 +223,26 @@ export function BookingPage() {
                                       {internal.name}
                                     </span>
                                   </div>
- 
+
                                   {/* Removed Learn More button */}
                                 </div>
- 
+
                                 <p className="text-[#5a5a5a] text-sm mb-3">
                                   {internal.description}
                                 </p>
- 
+
                                 <div className="flex items-center justify-between">
                                   <span className="text-[#556B2F] text-xl">
                                     ${internal.price}
                                   </span>
- 
+
                                   {quantity === 0 ? (
                                     <button
                                       type="button"
                                       onClick={() =>
                                         updateQuantity(internal.id, 1)
                                       }
-                                      className="bg-[#556B2F] text-white px-3 py-1 rounded-full text-sm"
+                                      className="bg-[#556B2F] text-white px-4 py-1.5 rounded-full text-sm flex items-center gap-2"
                                     >
                                       <Plus size={14} /> Add
                                     </button>
@@ -261,11 +257,11 @@ export function BookingPage() {
                                       >
                                         <Minus size={12} />
                                       </button>
- 
+
                                       <span className="text-[#556B2F] text-sm">
                                         {quantity}
                                       </span>
- 
+
                                       <button
                                         type="button"
                                         onClick={() =>
@@ -286,7 +282,7 @@ export function BookingPage() {
                     )}
                   </div>
                 )}
- 
+
                 {/* STEP 2 */}
                 {currentStep === 2 && (
                   <div className="bg-white rounded-2xl shadow-lg p-6">
@@ -296,7 +292,7 @@ export function BookingPage() {
                       </div>
                       <h3 className="text-[#556B2F]">Your Information</h3>
                     </div>
- 
+
                     <div className="grid md:grid-cols-2 gap-4">
                       <input
                         type="text"
@@ -340,7 +336,7 @@ export function BookingPage() {
                     </div>
                   </div>
                 )}
- 
+
                 {/* STEP 3 */}
                 {currentStep === 3 && (
                   <div className="bg-white rounded-2xl shadow-lg p-6">
@@ -350,7 +346,7 @@ export function BookingPage() {
                       </div>
                       <h3 className="text-[#556B2F]">Location & Time</h3>
                     </div>
- 
+
                     <div className="space-y-4">
                       <textarea
                         placeholder="Pickup / Service Address"
@@ -358,7 +354,7 @@ export function BookingPage() {
                         className="w-full px-4 py-3 rounded-xl border-2 border-gray-200"
                         required
                       />
- 
+
                       <div className="grid md:grid-cols-3 gap-4">
                         <input
                           type="text"
@@ -379,7 +375,7 @@ export function BookingPage() {
                           required
                         />
                       </div>
- 
+
                       <div className="grid md:grid-cols-2 gap-4">
                         <input
                           type="date"
@@ -395,7 +391,7 @@ export function BookingPage() {
                     </div>
                   </div>
                 )}
- 
+
                 {/* STEP 4 */}
                 {currentStep === 4 && (
                   <div className="bg-white rounded-2xl shadow-lg p-6">
@@ -405,14 +401,14 @@ export function BookingPage() {
                       </div>
                       <h3 className="text-[#556B2F]">Additional Information</h3>
                     </div>
- 
+
                     <div className="space-y-4">
                       <textarea
                         placeholder="Special Instructions..."
                         rows={4}
                         className="w-full px-4 py-3 rounded-xl border-2 border-gray-200"
                       />
- 
+
                       <select className="w-full px-4 py-3 rounded-xl border-2 border-gray-200">
                         <option>Select how you heard about us...</option>
                         <option>Friend/Family</option>
@@ -421,7 +417,7 @@ export function BookingPage() {
                         <option>Advertisement</option>
                         <option>Other</option>
                       </select>
- 
+
                       <div className="flex gap-3 p-4 bg-gray-100 rounded-xl">
                         <input type="checkbox" required />
                         <p className="text-sm text-[#5a5a5a]">
@@ -431,28 +427,38 @@ export function BookingPage() {
                     </div>
                   </div>
                 )}
- 
+
                 {/* Buttons */}
                 <div className="flex gap-4">
                   {currentStep > 1 && (
                     <button
                       type="button"
                       onClick={() => setCurrentStep(currentStep - 1)}
-                      className="flex-1 border-2 border-[#556B2F] text-[#556B2F] px-6 py-4 rounded-full"
+                      className="flex-1 bg-[#556B2F] text-white px-6 py-4 rounded-full disabled:opacity-50 flex items-center justify-center gap-2"
                     >
                       <ChevronLeft /> Back
                     </button>
                   )}
- 
+
                   {currentStep < 4 ? (
+                    // <button
+                    //   type="button"
+                    //   disabled={!canProceed()}
+                    //   onClick={() => setCurrentStep(currentStep + 1)}
+                    //   className="flex-1 bg-[#556B2F] text-white px-6 py-4 rounded-full disabled:opacity-50"
+                    // >
+                    //   Next <ChevronRight />
+                    // </button>
                     <button
                       type="button"
                       disabled={!canProceed()}
                       onClick={() => setCurrentStep(currentStep + 1)}
-                      className="flex-1 bg-[#556B2F] text-white px-6 py-4 rounded-full disabled:opacity-50"
+                      className="flex-1 bg-[#556B2F] text-white px-6 py-4 rounded-full disabled:opacity-50 flex items-center justify-center gap-2"
                     >
-                      Next <ChevronRight />
+                      <span>Next</span>
+                      <ChevronRight className="w-4 h-4" />
                     </button>
+
                   ) : (
                     <button
                       type="submit"
@@ -464,14 +470,14 @@ export function BookingPage() {
                 </div>
               </form>
             </div>
- 
+
             {/* RIGHT — Summary */}
             <div>
               <div className="bg-white rounded-2xl shadow-xl p-6 sticky top-20">
                 <h3 className="text-[#556B2F] mb-4 text-center">
                   Booking Summary
                 </h3>
- 
+
                 {service && Object.keys(selectedServices).length > 0 ? (
                   <>
                     <div className="space-y-3 mb-6">
@@ -496,7 +502,7 @@ export function BookingPage() {
                           </div>
                         ))}
                     </div>
- 
+
                     <div className="border-t-2 pt-4">
                       <div className="flex justify-between items-center">
                         <span className="text-[#5a5a5a]">Total:</span>
@@ -517,7 +523,7 @@ export function BookingPage() {
           </div>
         </div>
       </div>
- 
+
       <Footer />
     </div>
   );
