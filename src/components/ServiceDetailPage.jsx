@@ -641,9 +641,9 @@ export default function ServiceDetailPage() {
                   <button
                     onClick={() => setLearnMoreService(svc)}
                     className="px-6 py-4 rounded-full border-2 border-gray-300 text-white 
-             bg-transparent hover:bg-gray-200/30 transition-colors"
+             bg-transparent hover:bg-red-200/30 transition-colors"
                   >
-                    <Info size={18} />
+                    <Info size={25} />
                   </button>
                 </div>
 
