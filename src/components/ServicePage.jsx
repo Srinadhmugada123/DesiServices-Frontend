@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Footer } from "./Footer";
 import { Package, FileText, Heart, ShoppingBag } from "lucide-react";
+import { servicesData } from "../data/ServicesData";
 
 // 🧩 Simple replacement for ImageWithFallback
 const ImageWithFallback = ({ src, alt, className }) => {
@@ -27,49 +28,49 @@ const iconMap = {
 };
 
 // 🧩 Services Data (inline)
-const servicesData = [
-  {
-    id: "passport-visa",
-    name: "Passport & Visa Assistance",
-    tagline: "YOUR TRAVEL DOCUMENTATION EXPERTS",
-    description:
-      "Complete support for passports, visas, and travel documentation",
-    heroImage:
-      "https://images.unsplash.com/photo-1633111158093-c51d43175b77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    icon: "file-text",
-    emoji: "✈️",
-  },
-  {
-    id: "package-courier",
-    name: "Package & Courier",
-    tagline: "FAST & RELIABLE DELIVERY",
-    description: "Safe delivery for all your packages",
-    heroImage:
-      "https://images.unsplash.com/photo-1620455800201-7f00aeef12ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    icon: "package",
-    emoji: "📦",
-  },
-  {
-    id: "family-elder-care",
-    name: "Family & Elder Care",
-    tagline: "CARING FOR YOUR LOVED ONES",
-    description: "Professional care with heart",
-    heroImage:
-      "https://images.unsplash.com/photo-1723433892471-62f113c8c9a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    icon: "heart",
-    emoji: "❤️",
-  },
-  {
-    id: "personal-shopping",
-    name: "Personal Shopping & Errands",
-    tagline: "YOUR SHOPPING ASSISTANT",
-    description: "We shop so you can relax",
-    heroImage:
-      "https://images.unsplash.com/photo-1759167632930-298bca6b4268?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    icon: "shopping-bag",
-    emoji: "🛒",
-  },
-];
+// const servicesData = [
+//   {
+//     id: "passport-visa",
+//     name: "Passport & Visa Assistance",
+//     tagline: "YOUR TRAVEL DOCUMENTATION EXPERTS",
+//     description:
+//       "Complete support for passports, visas, and travel documentation",
+//     heroImage:
+//       "https://images.unsplash.com/photo-1633111158093-c51d43175b77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+//     icon: "file-text",
+//     emoji: "✈️",
+//   },
+//   {
+//     id: "package-courier",
+//     name: "Package & Courier",
+//     tagline: "FAST & RELIABLE DELIVERY",
+//     description: "Safe delivery for all your packages",
+//     heroImage:
+//       "https://images.unsplash.com/photo-1620455800201-7f00aeef12ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+//     icon: "package",
+//     emoji: "📦",
+//   },
+//   {
+//     id: "family-elder-care",
+//     name: "Family & Elder Care",
+//     tagline: "CARING FOR YOUR LOVED ONES",
+//     description: "Professional care with heart",
+//     heroImage:
+//       "https://images.unsplash.com/photo-1723433892471-62f113c8c9a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+//     icon: "heart",
+//     emoji: "❤️",
+//   },
+//   {
+//     id: "personal-shopping",
+//     name: "Personal Shopping & Errands",
+//     tagline: "YOUR SHOPPING ASSISTANT",
+//     description: "We shop so you can relax",
+//     heroImage:
+//       "https://images.unsplash.com/photo-1759167632930-298bca6b4268?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+//     icon: "shopping-bag",
+//     emoji: "🛒",
+//   },
+// ];
 
 // 🧩 Component
 export function ServicesPage() {

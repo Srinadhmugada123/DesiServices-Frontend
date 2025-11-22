@@ -237,60 +237,74 @@ export default function HomePage() {
               <h1 className="text-4xl font-bold">{current.name}</h1>
               <p className="text-white/90 text-xl">{current.description}</p>
               <div className="flex gap-4 flex-wrap">
-                <Link
+                {/* <Link
                   to={`/service/${current.id}`}
                   className="bg-[#708238] text-white px-8 py-4 rounded-full hover:bg-[#5a6e31] transition-all duration-300"
                 >
-                  Learn More
-                </Link>
+                  complete package
+                  ${current.packagePrice}
+                </Link></div> */}
+
+                {/* changing the styling */}
                 <Link
-                  to="/booking"
-                  state={{ selectedService: current.id }}
-                  className="bg-white text-[#708238] px-8 py-4 rounded-full hover:bg-[#F6F6F6] transition-all duration-300 border-2 border-white"
+                  to={`/service/${current.id}`}
+                  className="bg-[#708238]/90 text-white px-6 py-4 rounded-3xl border-2 border-white/30
+             inline-flex flex-col items justify-center 
+             shadow-md hover:bg-[#5a6e31] transition-all duration-300"
                 >
-                  Book Now
+                  <span className="text-sm">Complete Package</span>
+                  <span className="text-3xl font-semibold">${current.packagePrice}</span>
                 </Link>
+                 </div>
+                 <br></br>
+                <div>
+                  <Link
+                    to="/booking"
+                    state={{ selectedService: current.id }}
+                    className="bg-white text-[#708238] px-8 py-4 rounded-full hover:bg-[#F6F6F6] transition-all duration-300 border-2 border-white"
+                  >
+                    Book Now
+                  </Link>
+                </div>
+              </div>
+
+              <div>
+                <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20">
+                  <ImageWithFallback
+                    src={current.heroImage}
+                    alt={current.name}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
               </div>
             </div>
 
-            <div>
-              <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20">
-                <ImageWithFallback
-                  src={current.heroImage}
-                  alt={current.name}
-                  className="w-full h-[500px] object-cover"
-                />
+            {/* Slider Controls */}
+            <div className="flex justify-center items-center gap-4 mt-8">
+              <button
+                onClick={prevSlide}
+                className="w-12 h-12 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/30 transition-colors"
+              >
+                <ChevronLeft size={24} />
+              </button>
+              <div className="flex gap-2">
+                {servicesData.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`h-3 rounded-full ${index === currentSlide ? "w-8 bg-white" : "w-3 bg-white/40"
+                      }`}
+                  />
+                ))}
               </div>
+              <button
+                onClick={nextSlide}
+                className="w-12 h-12 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/30 transition-colors"
+              >
+                <ChevronRight size={24} />
+              </button>
             </div>
           </div>
-
-          {/* Slider Controls */}
-          <div className="flex justify-center items-center gap-4 mt-8">
-            <button
-              onClick={prevSlide}
-              className="w-12 h-12 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/30 transition-colors"
-            >
-              <ChevronLeft size={24} />
-            </button>
-            <div className="flex gap-2">
-              {servicesData.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`h-3 rounded-full ${
-                    index === currentSlide ? "w-8 bg-white" : "w-3 bg-white/40"
-                  }`}
-                />
-              ))}
-            </div>
-            <button
-              onClick={nextSlide}
-              className="w-12 h-12 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/30 transition-colors"
-            >
-              <ChevronRight size={24} />
-            </button>
-          </div>
-        </div>
       </section>
 
       {/* WHY CHOOSE US */}
@@ -319,7 +333,7 @@ export default function HomePage() {
             })}
           </div>
         </div>
-</section>
+      </section>
 
       {/* SERVICES GRID */}
       <section className="py-16 bg-[#F6F6F6]">
@@ -348,7 +362,7 @@ export default function HomePage() {
                 <div className="absolute bottom-0 left-0 p-6 text-white">
                   <div className="text-4xl mb-2">{s.emoji}</div>
                   <h3 className="text-xl font-semibold mb-1">{s.name}</h3>
-                  <p className="text-sm opacity-90 mb-2">{s.description}</p>
+                  {/* <p className="text-sm opacity-90 mb-2">{s.description}</p> */}
                   <span className="text-[#B7E4C7] inline-flex items-center gap-2 group-hover:gap-3 transition-all">
                     View Details →
                   </span>

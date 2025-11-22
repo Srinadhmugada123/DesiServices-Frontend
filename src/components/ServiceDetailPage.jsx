@@ -459,6 +459,25 @@ export default function ServiceDetailPage() {
       return { ...prev, [id]: newQty };
     });
 
+  // computed total if chosen individually (rounded)
+ const packagePrice = service.packagePrice ?? 0;
+
+// markup selection UI state
+const [markupPercent, setMarkupPercent] = useState(0.2); // default 20%
+
+// computed total if chosen individually (rounded)
+const totalIfIndividual = Math.round(packagePrice * (1 + markupPercent));
+
+const format = (v) =>
+  new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  }).format(v);
+
+const savings = Math.max(totalIfIndividual - packagePrice, 0);
+
+
+
   const calculateTotal = () =>
     Object.entries(selectedServices).reduce((sum, [id, qty]) => {
       const svc = service.internalServices.find((s) => s.id === id);
@@ -508,22 +527,60 @@ export default function ServiceDetailPage() {
               </p>
               <h1 className="text-4xl font-bold">{service.name}</h1>
               <p className="opacity-90 text-lg">{service.description}</p>
-
+                
               {/* Minimal Package Info */}
-              <p className="text-sm text-gray-200 mt-4">
+              {/* <p className="text-sm text-gray-200 mt-4">
                 Package:{" "}
                 <span className="text-[#708238] font-semibold">
                   ${service.packagePrice}
                 </span>{" "}
                 (Complete Support)
-              </p>
-            </div>
+              </p> */}
+<div className="bg-[#708238] text-white p-4 rounded-[20px]
+ mt-4 shadow-md w-[80%]">
+  
+  <div className="flex justify-between">
 
-            <img
-              src={service.heroImage}
+    {/* Package Price */}
+    <div>
+      <div className="text-xs sm:text-sm text-white/80">Package Price</div>
+      <div className="text-xl sm:text-2xl font-semibold text-white">
+        {format(service.packagePrice)}
+      </div>
+    </div>
+
+    {/* Individual Total */}
+    <div className="text-right">
+      <div className="text-xs sm:text-sm text-white/80">Individual Total</div>
+      <div className="text-xl sm:text-2xl font-semibold text-white/90 line-through">
+        {format(totalIfIndividual)}
+      </div>
+    </div>
+
+  </div>
+
+  {/* Savings */}
+  {savings > 0 && (
+    <div className="mt-3 text-xs sm:text-sm text-white/90">
+      You save <strong className="text-white">{format(savings)}</strong> by choosing the package.
+    </div>
+  )}
+
+</div>
+
+
+
+
+
+
+
+            </div>
+            {/* dont need hero image in individualservice */}
+            {/* <img
+              // src={service.heroImage}
               alt={service.name}
-              className="rounded-3xl shadow-2xl border-4 border-white/20 h-[400px] object-cover"
-            />
+              // className="rounded-3xl shadow-2xl border-4 border-white/20 h-[400px] object-cover"
+            /> */}
           </div>
         </div>
       </section>
@@ -564,13 +621,14 @@ export default function ServiceDetailPage() {
 
 
       <section className="py-16 bg-gray-100">
-        <div className="max-w-7xl mx-auto px-6 text-center mb-12">
+        <div className="max-w-7xl mx-auto px-6  py-4 text-center mb-12">
           <p className="text-[#708238] uppercase mb-2">What we offer</p>
           <h2 className="text-[#3A4D47] text-2xl mb-2">Choose What You Need</h2>
           <p className="text-[#5a5a5a]">Select services and check pricing</p>
         </div>
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="max-w-6xl  mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6 py-8
+        ">
           {service.internalServices.map((svc) => {
             const Icon = iconMap[svc.icon];
             const qty = selectedServices[svc.id] || 0;
@@ -619,8 +677,8 @@ export default function ServiceDetailPage() {
                   <div className="flex justify-between items-center border-t border-white/30 pt-3 mt-4">
                     <span
                       className={`${isImageCard
-                          ? "text-xl font-semibold"
-                          : "text-[#708238] text-xl font-semibold"
+                        ? "text-xl font-semibold"
+                        : "text-[#708238] text-xl font-semibold"
                         }`}
                     >
                       ${svc.price}
