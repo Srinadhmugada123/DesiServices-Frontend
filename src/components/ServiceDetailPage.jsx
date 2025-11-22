@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import {servicesData} from "../data/ServicesData";
+import { servicesData } from "../data/ServicesData";
 import {
   Package,
   FileText,
@@ -430,7 +430,7 @@ const iconMap = {
   truck: Truck,
   cross: Cross,
   car: Car,
-  file:File,
+  file: File,
 };
 
 // ===================== Component =====================
@@ -469,9 +469,9 @@ export default function ServiceDetailPage() {
   // // const handleProceedToBook = () => navigate("/book");
   // const handleProceedToBook = () => navigate("/booking"); 
 
- // Add logic for navigate tio booking page
+  // Add logic for navigate tio booking page
   const totalItems = Object.values(selectedServices).reduce((a, b) => a + b, 0);
- 
+
   const handleProceedToBook = () => {
     navigate("/booking", {
       state: {
@@ -485,48 +485,71 @@ export default function ServiceDetailPage() {
   return (
     <div className="bg-white">
       {/* Hero */}
-      <section
-        className="relative py-18 lg:py-20 overflow-hidden"
-        style={{
-          backgroundImage: `url(${service.backgroundImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="relative max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-white space-y-4">
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                  <ServiceIcon size={36} />
+      <div className="bg-white">
+        {/* Hero Section */}
+        <section
+          className="relative py-28 lg:py-32 overflow-hidden"
+          style={{
+            backgroundImage: `url(${service.backgroundImage})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/60" />
+
+          <div className="relative max-w-7xl mx-auto px-6">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+              {/* LEFT CONTENT */}
+              <div className="text-white space-y-5">
+                {/* Icons Row */}
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                    <ServiceIcon size={36} className="text-white" />
+                  </div>
+                  <span className="text-6xl">{service.emoji}</span>
                 </div>
-                <span className="text-5xl">{service.emoji}</span>
+
+                {/* Tagline */}
+                <p className="text-[#A7D7C5] uppercase tracking-widest text-sm">
+                  {service.tagline}
+                </p>
+
+                {/* Title */}
+                <div className="mt-6">
+                  <div className="bg-[#556B2F] text-white p-6 md:p-8 rounded-3xl shadow-xl border border-white/20 max-w-lg">
+
+                    {/* Title */}
+                    <p className="text-sm opacity-90">Complete Package</p>
+
+                    {/* Price + /service */}
+                    <div className="flex items-end gap-2 mt-1">
+                      <p className="text-5xl font-bold leading-none">${service.packagePrice}</p>
+                      <span className="text-lg opacity-90 mb-1">/ service</span>
+                    </div>
+
+                    {/* Includes Text */}
+                    <p className="text-sm mt-4 opacity-90 leading-relaxed">
+                      Includes: {service.includes.join(", ")}
+                    </p>
+
+                  </div>
+                </div>
+
               </div>
-              <p className="text-[#A7D7C5] uppercase tracking-wider">
-                {service.tagline}
-              </p>
-              <h1 className="text-4xl font-bold">{service.name}</h1>
-              <p className="opacity-90 text-lg">{service.description}</p>
 
-              {/* Minimal Package Info */}
-              <p className="text-sm text-gray-200 mt-4">
-                Package:{" "}
-                <span className="text-[#708238] font-semibold">
-                  ${service.packagePrice}
-                </span>{" "}
-                (Complete Support)
-              </p>
+              {/* RIGHT HERO IMAGE */}
+              <img
+                src={service.heroImage}
+                alt={service.name}
+                className="rounded-3xl shadow-2xl border-4 border-white/20 h-[430px] w-full object-cover"
+              />
             </div>
-
-            <img
-              src={service.heroImage}
-              alt={service.name}
-              className="rounded-3xl shadow-2xl border-4 border-white/20 h-[400px] object-cover"
-            />
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
+
 
       {/* Banner */}
       <section className="bg-[#708238] py-6 text-white">
@@ -560,7 +583,7 @@ export default function ServiceDetailPage() {
 
       {/* What We Offer */}
 
-{/* What We Offer */}
+      {/* What We Offer */}
       <section className="py-16 bg-gray-100">
         <div className="max-w-7xl mx-auto px-6 text-center mb-12">
           <p className="text-[#708238] uppercase mb-2">What we offer</p>
@@ -659,7 +682,7 @@ export default function ServiceDetailPage() {
 
 
 
-{/* How It Works */}
+      {/* How It Works */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-2xl font-semibold text-[#3A4D47] mb-2">
@@ -685,7 +708,7 @@ export default function ServiceDetailPage() {
           </div>
         </div>
       </section>
-      
+
       {/* Floating Cart */}
       {totalItems > 0 && (
         <div className="fixed bottom-0 left-0 right-0 bg-gray-100 border-t-2 border-[#708238] shadow-2xl z-50">

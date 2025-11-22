@@ -50,7 +50,7 @@ export const servicesData = [
     tagline: "YOUR TRAVEL DOCUMENTATION EXPERTS",
     description: "Complete support for passports, visas, and travel documentation.",
     packagePrice: 200,
-    included: [
+    includes: [
       "Pickup & Drop",
       "Document Verification",
       "Appointment Booking",
@@ -169,7 +169,7 @@ export const servicesData = [
     heroImage: "https://t4.ftcdn.net/jpg/03/84/36/83/360_F_384368336_YuhIpjNDJ3mkiLcPlFRVqPC5pgMyCwLa.jpg",
     icon: "package",
     emoji: "📦",
-    included: [
+    includes: [
       "Pickup & Delivery",
       "Package Tracking",
       "Safe Handling",
@@ -309,7 +309,7 @@ export const servicesData = [
     heroImage: "https://t4.ftcdn.net/jpg/01/67/77/85/360_F_167778573_NBEZK9uISYk6zct9d24qguwPnZGnkTUx.jpg",
     icon: "heart",
     emoji: "❤️",
-    included: [
+    includes: [
       "Health Monitoring",
       "Transportation",
       "Medical Support",
@@ -400,7 +400,7 @@ export const servicesData = [
     heroImage: "https://media.istockphoto.com/id/109723968/photo/young-woman-on-a-cellphone-at-the-supermarket.jpg?s=170667a&w=0&k=20&c=6fL-snCJS30tgSjLGxwXthNkEefMxq0jNZ2K9lH3eCU=",
     icon: "shopping-bag",
     emoji: "🛒",
-    included: [
+    includes: [
       "List-based Shopping",
       "Quality Selection",
       "Home Delivery",

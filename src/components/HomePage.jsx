@@ -237,16 +237,16 @@ export default function HomePage() {
               <h1 className="text-4xl font-bold">{current.name}</h1>
               <p className="text-white/90 text-xl">{current.description}</p>
               <div className="flex gap-4 flex-wrap">
-                <Link
+                {/* <Link
                   to={`/service/${current.id}`}
                   className="bg-[#708238] text-white px-8 py-4 rounded-full hover:bg-[#5a6e31] transition-all duration-300"
                 >
                   Learn More
-                </Link>
+                </Link> */}
                 <Link
                   to="/booking"
                   state={{ selectedService: current.id }}
-                  className="bg-white text-[#708238] px-8 py-4 rounded-full hover:bg-[#F6F6F6] transition-all duration-300 border-2 border-white"
+                  className="bg-white text-[#708238] px-8 py-4 rounded-full hover:bg-[#708238] transition-all duration-300 border-2 border-white"
                 >
                   Book Now
                 </Link>
