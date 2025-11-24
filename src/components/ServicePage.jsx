@@ -35,7 +35,7 @@ const servicesData = [
     description:
       "Complete support for passports, visas, and travel documentation",
     heroImage:
-      "https://images.unsplash.com/photo-1633111158093-c51d43175b77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "https://www.uniglobemkov.com/content/1721996217-5601-20241109045129_blog.jpg",
     icon: "file-text",
     emoji: "✈️",
   },
@@ -55,7 +55,7 @@ const servicesData = [
     tagline: "CARING FOR YOUR LOVED ONES",
     description: "Professional care with heart",
     heroImage:
-      "https://images.unsplash.com/photo-1723433892471-62f113c8c9a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "https://media.istockphoto.com/id/1178548716/photo/female-nurse-and-family-with-senior-patient-at-home.jpg?s=612x612&w=0&k=20&c=iU6xyRuETwO1Dti6K9YWUpGMPgD8FAVeSGeG3li8e7I=",
     icon: "heart",
     emoji: "❤️",
   },
@@ -65,7 +65,7 @@ const servicesData = [
     tagline: "YOUR SHOPPING ASSISTANT",
     description: "We shop so you can relax",
     heroImage:
-      "https://images.unsplash.com/photo-1759167632930-298bca6b4268?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "https://www.maxicabsgstransport.com/wp-content/uploads/2021/02/Service-Image8.jpg",
     icon: "shopping-bag",
     emoji: "🛒",
   },
@@ -77,7 +77,7 @@ export function ServicesPage() {
     <div className="bg-white py-12 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h1 className="text-[#708238] mb-4 text-3xl font-bold">
+          <h1 className="text-[#] mb-4 text-3xl ">
             Our Services
           </h1>
           <p className="text-[#5a5a5a] max-w-2xl mx-auto">
