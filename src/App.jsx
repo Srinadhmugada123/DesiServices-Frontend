@@ -6,6 +6,7 @@ import ServiceDetailPage  from "./components/ServiceDetailPage.jsx";
 // import { BookingPage } from "./components/BookingPage.";
 import {MyOrdersPage}  from "./components/MyOrdersPage";
 import { BookingPage } from "./components/BookingPage.jsx";
+import ScrollToTop from "./components/ScrollToTop";
 
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
     <Router>
       <div className="min-h-screen bg-white">
         <Navigation />
+        <ScrollToTop behavior="auto" />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/services" element={<ServicesPage />} />

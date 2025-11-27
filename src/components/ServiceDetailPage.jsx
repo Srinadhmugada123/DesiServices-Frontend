@@ -437,7 +437,7 @@ const iconMap = {
 export default function ServiceDetailPage() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const service = servicesData.find((s) => s.id === id);
+  const service = servicesData?.find((s) => s?.id === id);
   const [selectedServices, setSelectedServices] = useState({});
   const [learnMoreService, setLearnMoreService] = useState(null);
 
@@ -445,6 +445,7 @@ export default function ServiceDetailPage() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <p>Service not found</p>
+        <p className="text-gray-600">The service you’re trying to view does not exist.</p>
       </div>
     );
 
@@ -490,7 +491,7 @@ export default function ServiceDetailPage() {
         <section
           className="relative py-28 lg:py-32 overflow-hidden"
           style={{
-            backgroundImage: `url(${service.backgroundImage})`,
+            backgroundImage: service?.backgroundImage ? `url(${service.backgroundImage})` : "none",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -513,14 +514,14 @@ export default function ServiceDetailPage() {
 
                 {/* Tagline */}
                 <p className="text-[#708238] uppercase tracking-widest text-sm">
-                  {service.tagline}
+                  {service?.tagline || "no tagline"}
                 </p>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl drop-shadow-lg">
-                  {service.name}
+                  {service?.name || "Unnamed Service"}
                 </h1>
 
                 <p className="opacity-90 text-base sm:text-lg lg:text-xl drop-shadow-md leading-relaxed">
-                  {service.description}
+                  {service?.description ?? "No description available"}
                 </p>
 
                 {/* Title */}
@@ -532,7 +533,7 @@ export default function ServiceDetailPage() {
 
                     {/* Price + /service */}
                     <div className="flex items-end gap-2 mt-1">
-                      <p className="text-5xl font-bold leading-none">${service.packagePrice}</p>
+                      <p className="text-5xl font-bold leading-none">${service?.packagePrice || 0}</p>
                       <span className="text-lg opacity-90 mb-1">/ service</span>
                     </div>
 
@@ -610,8 +611,8 @@ export default function ServiceDetailPage() {
               >
                 {/* IMAGE */}
                 <img
-                  src={svc.image}
-                  alt={svc.name}
+                  src={svc?.image || fallbackImage}
+                  alt={svc?.name ?? "Unknown services"}
                   className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
                 />
 
@@ -620,7 +621,7 @@ export default function ServiceDetailPage() {
 
                 {/* PRICE BADGE */}
                 <div className="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-sm font-semibold text-[#708238] shadow">
-                  ${svc.price}
+                  ${svc?.price || 0}
                 </div>
 
                 {/* ICON TOP RIGHT */}
@@ -630,8 +631,8 @@ export default function ServiceDetailPage() {
 
                 {/* TITLE + DESCRIPTION */}
                 <div className="absolute bottom-20 left-4 right-4 text-white">
-                  <h3 className="text-lg font-bold">{svc.name}</h3>
-                  <p className="text-sm opacity-90">{svc.description}</p>
+                  <h3 className="text-lg font-bold">{svc?.name ?? "Unknown name"}</h3>
+                  <p className="text-sm opacity-90">{svc?.description || "No description"}</p>
                 </div>
 
                 {/* ADD / QTY SECTION */}
